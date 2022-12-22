@@ -13,7 +13,14 @@ Usage
 
 1. add this package to your project's requiremets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Add this project to requirements.
+Also add `python-jose==3.0.0` since it is not being picked up from the project's requirements.
 
+Your private.txt should looke like this at the end:
+..  code-block:: yaml
+
+  -e ./edx-oauth2-auth0-backend/
+  python-jose==3.0.0
 
 
 3. configure your Open edX lms application

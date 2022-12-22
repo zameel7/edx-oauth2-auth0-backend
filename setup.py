@@ -68,7 +68,7 @@ setup(
     name="edx-oauth2-auth0-backend",
     version=VERSION,
     description=(
-        "An OAuth backend for Auth0 that properly handles "
+        "An OAuth2 backend for Auth0 that properly handles "
         "the auth_exchange endpoint token parsing."
     ),
     long_description=README,
