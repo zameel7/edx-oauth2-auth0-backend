@@ -1,0 +1,4 @@
+# Stable Python Social Auth, found in Open edX Olive
+social-auth-app-django==5.0.0
+social-auth-core==4.3.0
+python-jose==3.0.0

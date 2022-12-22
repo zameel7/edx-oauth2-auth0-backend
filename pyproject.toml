@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta:__legacy__"
+
+[project]
+name = "edx-oauth2-wordpress-backend"
+version = "1.0.6"
+authors = [
+  { name="Lawrence McDaniel", email="lpm0073@gmail.com" },
+]
+description = "An Open edX Python Social Auth backend for Wordpress"
+readme = "README.rst"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "social-auth-core>=4.2.0",
+  "social-auth-app-django==5.0.0"
+]
+keywords = ["Open edX", "oauth", "Wordpress"]
+
+[project.urls]
+"Homepage" = "https://github.com/lpm0073/edx-oauth2-wordpress-backend"
+"Bug Tracker" = "https://github.com/lpm0073/edx-oauth2-wordpress-backend/issues"
