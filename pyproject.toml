@@ -18,7 +18,8 @@ classifiers = [
 ]
 dependencies = [
   "social-auth-core>=4.2.0",
-  "social-auth-app-django==5.0.0"
+  "social-auth-app-django==5.0.0",
+  "python-jose==3.0.0"
 ]
 keywords = ["Open edX", "oauth", "Wordpress"]
 
