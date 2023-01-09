@@ -3,9 +3,6 @@ Overview
 --------
 Copied from https://github.com/lpm0073/edx-oauth2-wordpress-backend
 
-TODO
-
-
 
 Usage
 -----
@@ -24,7 +21,7 @@ Your private.txt should looke like this at the end:
   python-jose==3.0.0
 
 
-3. configure your Open edX lms application
+2. configure your Open edX lms application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  code-block:: yaml
