@@ -13,7 +13,7 @@ build:
 
 	if [ -d "./build" ]; then sudo rm -r build; fi
 	if [ -d "./dist" ]; then sudo rm -r dist; fi
-	if [ -d "./edx_oauth2_wordpress_backend.egg-info" ]; then sudo rm -r edx_oauth2_wordpress_backend.egg-info; fi
+	if [ -d "./edx_oauth2_auth0_backend.egg-info" ]; then sudo rm -r edx_oauth2_auth0_backend.egg-info; fi
 
 	python3 -m build --sdist ./
 	python3 -m build --wheel ./
