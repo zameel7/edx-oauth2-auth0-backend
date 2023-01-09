@@ -72,13 +72,10 @@ setup(
         "the auth_exchange endpoint token parsing."
     ),
     long_description=README,
-    author="Daniel Litvak, daniel@milemarker.io",
-    author_email="daniel@milemarker.io",
-    url="https://github.com/YamEducation/edx-oauth2-auth0-backend",
+    url="https://github.com/zameel7/edx-oauth2-auth0-backend",
     project_urls={
-        "Code": "https://github.com/YamEducation/edx-oauth2-auth0-backend",
-        "Issue tracker": "https://github.com/YamEducation/edx-oauth2-auth0-backend/issues",
-        "Community": "https://yam-edu.com",
+        "Code": "https://github.com/zameel7/edx-oauth2-auth0-backend",
+        "Issue tracker": "https://github.com/zameel7/edx-oauth2-auth0-backend/issues"
     },
     packages=find_packages(),
     include_package_data=True,
