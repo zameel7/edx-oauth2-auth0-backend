@@ -29,7 +29,7 @@ Your private.txt should looke like this at the end:
   ADDL_INSTALLED_APPS:
   - "auth0_oauth2"
   THIRD_PARTY_AUTH_BACKENDS:
-  - "auth0_oauth2.auth0.Auth0OAuth2"
+  - "auth0_oauth2.auth0.BlendEdAuth0OAuth2"
   ENABLE_REQUIRE_THIRD_PARTY_AUTH: true
 
 

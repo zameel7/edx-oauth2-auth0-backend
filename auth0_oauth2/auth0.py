@@ -10,7 +10,7 @@ from social_core.backends.oauth import BaseOAuth2
 
 logger = getLogger(__name__)
 
-class Auth0OAuth2(BaseOAuth2):
+class BlendEdAuth0OAuth2(BaseOAuth2):
     """Auth0 OAuth authentication backend"""
 
     name = "auth0-plugin"
