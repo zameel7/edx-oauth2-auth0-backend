@@ -59,13 +59,24 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
         )
 
         logger.warning("Payload: {val}".format(val=json.dumps(payload, sort_keys=True, indent=4)))
-        if not is_auth_exchange:
+        if not is_auth_exchange and "email" in payload:
             
             fullname, first_name, last_name = self.get_user_names(payload["name"])
             return {
                 "username": payload["nickname"],
                 "email": payload["email"],
                 "email_verified": payload.get("email_verified", False),
+                "fullname": fullname,
+                "first_name": first_name,
+                "last_name": last_name,
+                "picture": payload["picture"],
+                "user_id": payload["sub"],
+            }
+        elif "email" not in payload:
+            
+            fullname, first_name, last_name = self.get_user_names(payload["name"])
+            return {
+                "username": payload["nickname"],
                 "fullname": fullname,
                 "first_name": first_name,
                 "last_name": last_name,
