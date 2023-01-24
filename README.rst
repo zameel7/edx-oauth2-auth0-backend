@@ -1,7 +1,7 @@
 
 Overview
 --------
-Copied from https://github.com/lpm0073/edx-oauth2-wordpress-backend
+This is an Openedx plugins intended for using Auth0 as an OAuth Third party authentication.
 
 
 Usage
