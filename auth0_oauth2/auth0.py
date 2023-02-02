@@ -54,6 +54,7 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
             audience = self.AUDIENCE # match the audience in the access token
             is_auth_exchange = True
 
+        logger.warning(f"-----------------------\nResponse before JWT decode: \nid_token:{id_token} \naudience:{audience} \nissuer:{issuer} \njwks:{jwks} \nis_auth_exchange:{is_auth_exchange}\n---------------------")
         payload = jwt.decode(
             id_token, jwks, algorithms=["RS256"], audience=audience, issuer=issuer
         )
