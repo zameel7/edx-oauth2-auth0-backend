@@ -76,7 +76,7 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
         elif "email" not in payload:
             
             fullname, first_name, last_name = self.get_user_names(payload["name"])
-            user_email = f'{payload["name"]}@student.blend-ed.com'
+            user_email = f'{payload["name"].strip("+")}@student.blend-ed.com'
             return {
                 "username": payload["nickname"],
                 "email": user_email,
