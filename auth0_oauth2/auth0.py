@@ -7,11 +7,23 @@ import json
 from logging import getLogger
 
 from social_core.backends.oauth import BaseOAuth2
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 logger = getLogger(__name__)
 
 class BlendEdAuth0OAuth2(BaseOAuth2):
     """Auth0 OAuth authentication backend"""
+
+    # The default key name where the user identification field is defined, it’s
+    # used in the auth process when some basic user data is returned. This Id
+    # is stored in the UserSocialAuth.uid field and this, together with the
+    # UserSocialAuth.provider field, is used to uniquely identify a user association.
+    ID_KEY = "email"
+
+    # Flags the backend to enforce email validation during the pipeline
+    # (if the corresponding pipeline social_core.pipeline.mail.mail_validation was enabled).
+    REQUIRES_EMAIL_VALIDATION = False
 
     name = "auth0-plugin"
     SCOPE_SEPARATOR = " "
