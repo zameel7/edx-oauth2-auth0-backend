@@ -101,7 +101,7 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
                 "first_name": first_name,
                 "last_name": last_name,
                 "picture": payload["picture"],
-                "user_id": payload["email"],
+                "user_id": user_email,
             }
         else:
             # when using an access token, we only have the user_id. We do not have all the other information.
