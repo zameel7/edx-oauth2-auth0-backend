@@ -15,12 +15,6 @@ logger = getLogger(__name__)
 class BlendEdAuth0OAuth2(BaseOAuth2):
     """Auth0 OAuth authentication backend"""
 
-    # The default key name where the user identification field is defined, it’s
-    # used in the auth process when some basic user data is returned. This Id
-    # is stored in the UserSocialAuth.uid field and this, together with the
-    # UserSocialAuth.provider field, is used to uniquely identify a user association.
-    ID_KEY = "email"
-
     # Flags the backend to enforce email validation during the pipeline
     # (if the corresponding pipeline social_core.pipeline.mail.mail_validation was enabled).
     REQUIRES_EMAIL_VALIDATION = False
@@ -45,9 +39,12 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
         return self.api_path("oauth/token")
 
     def get_user_id(self, details, response):
-        """Return current user id."""
+        """
+        Return current user id.
+        This is used to identify if the logging user already has an edx account
+        """
         logger.warning("Details: {resp}".format(resp=json.dumps(details, sort_keys=True, indent=4)))
-        return details["user_id"]
+        return details["email"]
 
     def get_user_details(self, response):
         # Obtain JWT and the keys to validate the signature
