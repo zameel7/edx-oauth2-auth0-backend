@@ -83,7 +83,7 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
                 "first_name": first_name,
                 "last_name": last_name,
                 "picture": payload["picture"],
-                "user_id": payload["uid"],
+                "user_id": payload["sub"],
             }
         elif "email" not in payload:
             
@@ -97,7 +97,7 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
                 "first_name": first_name,
                 "last_name": last_name,
                 "picture": payload["picture"],
-                "user_id": payload["uid"],
+                "user_id": payload["sub"],
             }
         else:
             # when using an access token, we only have the user_id. We do not have all the other information.
