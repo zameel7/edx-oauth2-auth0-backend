@@ -60,7 +60,7 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
         #if handling an auth_exchange
         if id_token is None: # handling for auth_exchange which doesn't send an id_token
             id_token = response.get("access_token") # attempt to use the access token in this case  
-            audience = self.AUDIENCE # match the audience in the access token
+            # audience = self.AUDIENCE # match the audience in the access token
             is_auth_exchange = True
 
         logger.warning(f"-----------------------\nResponse before JWT decode: \nid_token:{id_token} \naudience:{audience} \nissuer:{issuer} \njwks:{jwks} \nis_auth_exchange:{is_auth_exchange}\n---------------------")
