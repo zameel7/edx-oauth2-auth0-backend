@@ -44,7 +44,7 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
         This is used to identify if the logging user already has an edx account
         """
         logger.warning("Details: {resp}".format(resp=json.dumps(details, sort_keys=True, indent=4)))
-        return details["email"]
+        return details["user_id"]
 
     def get_user_details(self, response):
         # Obtain JWT and the keys to validate the signature
