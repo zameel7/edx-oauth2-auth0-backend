@@ -21,7 +21,7 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
     ACCESS_TOKEN_METHOD = "POST"
     EXTRA_DATA = [("picture", "picture")]
     DOMAIN="blend-ed-dev.us.auth0.com"
-    # AUDIENCE="6fmZ9A0Z7n3yDKp01N6wLjTu5saclRIz"
+    AUDIENCE="6fmZ9A0Z7n3yDKp01N6wLjTu5saclRIz"
 
     def api_path(self, path=""):
         """Build API path for Auth0 domain"""
@@ -33,9 +33,6 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
 
     def access_token_url(self):
         return self.api_path("oauth/token")
-    
-    def logout_url(self):
-        return self.api_path("logout")
 
     def get_user_id(self, details, response):
         """
@@ -88,7 +85,7 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
                 "picture": payload["picture"],
                 "user_id": payload["email"],
             }
-        else:
+        elif "email" not in payload:
             
             fullname, first_name, last_name = self.get_user_names(payload["name"])
             user_email = f'{payload["name"].strip("+")}@student.blend-ed.com'
@@ -101,4 +98,9 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
                 "last_name": last_name,
                 "picture": payload["picture"],
                 "user_id": user_email,
+            }
+        else:
+            # when using an access token, we only have the user_id. We do not have all the other information.
+            return {
+                "user_id": payload["email"]
             }
