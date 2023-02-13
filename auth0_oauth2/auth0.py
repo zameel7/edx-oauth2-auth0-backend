@@ -77,30 +77,29 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
             fullname, first_name, last_name = self.get_user_names(payload["name"])
             return {
                 "username": username,
-                "email": payload["email"],
+                "email": payload["https://hasura.io/jwt/claims"]["email"],
                 "email_verified": payload.get("email_verified", False),
                 "fullname": fullname,
                 "first_name": first_name,
                 "last_name": last_name,
                 "picture": payload["picture"],
-                "user_id": payload["email"],
+                "user_id": payload["https://hasura.io/jwt/claims"]["email"],
             }
         elif "email" not in payload:
             
             fullname, first_name, last_name = self.get_user_names(payload["name"])
-            user_email = f'{payload["name"].strip("+")}@student.blend-ed.com'
             return {
                 "username": username,
-                "email": user_email,
+                "email": payload["https://hasura.io/jwt/claims"]["email"],
                 "email_verified": payload.get("email_verified", False),
                 "fullname": fullname,
                 "first_name": first_name,
                 "last_name": last_name,
                 "picture": payload["picture"],
-                "user_id": user_email,
+                "user_id": payload["https://hasura.io/jwt/claims"]["email"],
             }
         else:
             # when using an access token, we only have the user_id. We do not have all the other information.
             return {
-                "user_id": payload["email"]
+                "user_id": payload["https://hasura.io/jwt/claims"]["email"]
             }
