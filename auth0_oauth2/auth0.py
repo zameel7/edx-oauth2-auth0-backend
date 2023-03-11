@@ -20,7 +20,7 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
     DEFAULT_SCOPE=["email", "profile", "openid"]
     ACCESS_TOKEN_METHOD = "POST"
     EXTRA_DATA = [("picture", "picture")]
-    DOMAIN="blend-ed-dev.us.auth0.com"
+    DOMAIN="blend-ed.us.auth0.com"
     AUDIENCE="6fmZ9A0Z7n3yDKp01N6wLjTu5saclRIz"
 
     def api_path(self, path=""):
