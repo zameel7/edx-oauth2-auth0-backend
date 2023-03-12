@@ -77,13 +77,13 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
             fullname, first_name, last_name = self.get_user_names(payload["name"])
             return {
                 "username": username,
-                "email": email,
+                "email": payload["email"],
                 "email_verified": payload.get("email_verified", False),
                 "fullname": fullname,
                 "first_name": first_name,
                 "last_name": last_name,
                 "picture": payload["picture"],
-                "user_id": email,
+                "user_id": payload["email"]
             }
         elif "email" not in payload:
             
