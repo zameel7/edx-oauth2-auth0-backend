@@ -77,13 +77,13 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
             fullname, first_name, last_name = self.get_user_names(payload["name"])
             return {
                 "username": username,
-                "email": payload["https://hasura.io/jwt/claims"]["email"],
+                "email": email,
                 "email_verified": payload.get("email_verified", False),
                 "fullname": fullname,
                 "first_name": first_name,
                 "last_name": last_name,
                 "picture": payload["picture"],
-                "user_id": payload["https://hasura.io/jwt/claims"]["email"],
+                "user_id": email,
             }
         elif "email" not in payload:
             
