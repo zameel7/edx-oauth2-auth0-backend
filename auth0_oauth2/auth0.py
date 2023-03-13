@@ -66,17 +66,11 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
 
         logger.warning("Payload: {val}".format(val=json.dumps(payload, sort_keys=True, indent=4)))
         
-        username = payload["name"]
-        if "+" in payload["name"]:
-            username = payload["name"].strip("+")
-        elif "@" in payload["name"]:
-            username = payload["name"][:payload["name"].index("@")]
-        
         if not is_auth_exchange and "email" in payload:
             
             fullname, first_name, last_name = self.get_user_names(payload["name"])
             return {
-                "username": username,
+                "username": payload["https://hasura.io/jwt/claims"]["openedx_username"],
                 "email": payload["email"],
                 "email_verified": payload.get("email_verified", False),
                 "fullname": fullname,
@@ -89,7 +83,7 @@ class BlendEdAuth0OAuth2(BaseOAuth2):
             
             fullname, first_name, last_name = self.get_user_names(payload["name"])
             return {
-                "username": username,
+                "username": payload["https://hasura.io/jwt/claims"]["openedx_username"],
                 "email": payload["https://hasura.io/jwt/claims"]["email"],
                 "email_verified": payload.get("email_verified", False),
                 "fullname": fullname,
