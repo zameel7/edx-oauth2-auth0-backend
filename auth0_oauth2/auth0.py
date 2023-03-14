@@ -7,12 +7,10 @@ import json
 from logging import getLogger
 
 from social_core.backends.oauth import BaseOAuth2
-from django.contrib.auth import get_user_model
 
-User = get_user_model()
 logger = getLogger(__name__)
 
-class BlendEdAuth0OAuth2(BaseOAuth2):
+class Auth0OAuth2(BaseOAuth2):
     """Auth0 OAuth authentication backend"""
 
     name = "auth0-plugin"
