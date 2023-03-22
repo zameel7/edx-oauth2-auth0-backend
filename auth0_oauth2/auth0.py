@@ -7,12 +7,16 @@ import json
 from logging import getLogger
 
 from social_core.backends.oauth import BaseOAuth2
+from django.test import utils as django_utils
 
 logger = getLogger(__name__)
+
 
 class Auth0OAuth2(BaseOAuth2):
     """Auth0 OAuth authentication backend"""
 
+    @django_utils.override_settings(ENABLE_REQUIRE_THIRD_PARTY_AUTH=True)
+    
     name = "auth0-plugin"
     SCOPE_SEPARATOR = " "
     DEFAULT_SCOPE=["email", "profile", "openid"]
