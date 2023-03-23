@@ -14,8 +14,6 @@ logger = getLogger(__name__)
 
 class Auth0OAuth2(BaseOAuth2):
     """Auth0 OAuth authentication backend"""
-
-    @django_utils.override_settings(ENABLE_REQUIRE_THIRD_PARTY_AUTH=True)
     
     name = "auth0-plugin"
     SCOPE_SEPARATOR = " "
@@ -35,7 +33,8 @@ class Auth0OAuth2(BaseOAuth2):
 
     def access_token_url(self):
         return self.api_path("oauth/token")
-
+    
+    @django_utils.override_settings(ENABLE_REQUIRE_THIRD_PARTY_AUTH=True)
     def get_user_id(self, details, response):
         """
         Return current user id.
