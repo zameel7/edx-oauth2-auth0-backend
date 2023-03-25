@@ -7,7 +7,6 @@ import json
 from logging import getLogger
 
 from social_core.backends.oauth import BaseOAuth2
-from django.test import utils as django_utils
 
 logger = getLogger(__name__)
 
